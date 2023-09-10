@@ -11,8 +11,9 @@ router.post('/', async (req, res) => {
     if (!user || !await bcrypt.compare(req.body.password, user.passwordDigest)) {
         res.status(404).json({ message: 'Invalid email or password' })
     } else {
-    res.json({user})
-}
+        req.session.userId = user.userId
+        res.json({ user })
+    }
 })
 
 router.get('/profile', async (req, res) => {
