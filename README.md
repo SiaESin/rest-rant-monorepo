@@ -1,6 +1,11 @@
 # Project REST-Rant
 REST-Rant is an app where users can review restaurants.
 
+the follow was removed from frontend/package.json file
+"build": "react-scripts build",
+
+
+
 ### Setup
 First, you'll need a Postgres database to connect to. Follow instructions here to setup the database and save credentials for the next step.
 
