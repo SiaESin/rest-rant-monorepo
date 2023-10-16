@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize: any, DataTypes: { SMALLINT: any; STRING: any; }) => {
   class User extends Model {
 
     static associate({ Comment }) {

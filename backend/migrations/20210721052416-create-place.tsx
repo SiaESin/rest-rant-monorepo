@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface: { createTable: (arg0: string, arg1: { place_id: { allowNull: boolean; autoIncrement: boolean; primaryKey: boolean; type: any; }; name: { type: any; }; city: { type: any; }; state: { type: any; }; cuisines: { type: any; }; pic: { type: any; }; founded: { type: any; }; created_at: { allowNull: boolean; type: any; }; updated_at: { allowNull: boolean; type: any; }; }) => any; }, Sequelize: { INTEGER: any; STRING: any; DATE: any; }) => {
     await queryInterface.createTable('places', {
       place_id: {
         allowNull: false,
@@ -36,7 +36,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface: { dropTable: (arg0: string) => any; }, Sequelize: any) => {
     await queryInterface.dropTable('places');
   }
 };

@@ -3,7 +3,7 @@ const db = require("../models")
 
 const { Place, Comment, User } = db
 
-router.post('/', async (req, res) => {
+router.post('/', async (req: { body: { pic: string; city: string; state: string } }, res: { json: (arg0: any) => void }) => {
     if (!req.body.pic) {
         req.body.pic = 'http://placekitten.com/400/400'
     }
@@ -18,13 +18,13 @@ router.post('/', async (req, res) => {
 })
 
 
-router.get('/', async (req, res) => {
+router.get('/', async (req: any, res: { json: (arg0: any) => void }) => {
     const places = await Place.findAll()
     res.json(places)
 })
 
 
-router.get('/:placeId', async (req, res) => {
+router.get('/:placeId', async (req: { params: { placeId: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string }): void; new(): any } }; json: (arg0: any) => void }) => {
     let placeId = Number(req.params.placeId)
     if (isNaN(placeId)) {
         res.status(404).json({ message: `Invalid id "${placeId}"` })
@@ -44,7 +44,7 @@ router.get('/:placeId', async (req, res) => {
     }
 })
 
-router.put('/:placeId', async (req, res) => {
+router.put('/:placeId', async (req: { params: { placeId: any }; body: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string }): void; new(): any } }; json: (arg0: any) => void }) => {
     let placeId = Number(req.params.placeId)
     if (isNaN(placeId)) {
         res.status(404).json({ message: `Invalid id "${placeId}"` })
@@ -62,7 +62,7 @@ router.put('/:placeId', async (req, res) => {
     }
 })
 
-router.delete('/:placeId', async (req, res) => {
+router.delete('/:placeId', async (req: { params: { placeId: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string }): void; new(): any } }; json: (arg0: any) => void }) => {
     let placeId = Number(req.params.placeId)
     if (isNaN(placeId)) {
         res.status(404).json({ message: `Invalid id "${placeId}"` })
@@ -81,7 +81,7 @@ router.delete('/:placeId', async (req, res) => {
     }
 })
 
-router.post('/:placeId/comments', async (req, res) => {
+router.post('/:placeId/comments', async (req: { params: { placeId: any }; body: { rant: boolean; authorId: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string }): void; new(): any } }; send: (arg0: any) => void }) => {
     const placeId = Number(req.params.placeId)
 
     req.body.rant = req.body.rant ? true : false
@@ -113,7 +113,7 @@ router.post('/:placeId/comments', async (req, res) => {
     })
 })
 
-router.delete('/:placeId/comments/:commentId', async (req, res) => {
+router.delete('/:placeId/comments/:commentId', async (req: { params: { placeId: any; commentId: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string }): void; new(): any } }; json: (arg0: any) => void }) => {
     let placeId = Number(req.params.placeId)
     let commentId = Number(req.params.commentId)
 

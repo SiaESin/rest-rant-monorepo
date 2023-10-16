@@ -1,7 +1,8 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-function PlaceIndex(data) {
+function PlaceIndex(data: any) {
 
 	const history = useHistory()
 	
